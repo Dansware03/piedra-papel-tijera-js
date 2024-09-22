@@ -1,0 +1,172 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1.titulo {
+    color: #3030fa;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .contenedor {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+  }
+
+  .input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .boton {
+    width: 100%;
+    background-color: #3030fa;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+  }
+
+  .boton:hover {
+    background-color: #0000b9;
+  }
+
+  /* Resultados */
+  .resultado {
+    margin-top: 20px;
+  }
+
+  .resultado p {
+    font-size: 1.1em;
+    margin: 5px 0;
+  }
+
+  .resultado-final {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #3030fa;
+  }
+
+  /* Historial */
+  .historial {
+    margin-top: 30px;
+  }
+
+  .historial h3 {
+    font-size: 1.5em;
+    color: #3030fa;
+    margin-bottom: 10px;
+  }
+
+  .historial ul {
+    list-style-type: none;
+    padding-left: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+  }
+
+  .historial ul li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .footer p {
+    font-size: 0.9em;
+    color: #888;
+  }
+
+  .footer a {
+    font-size: 0.9em;
+    color: #555;
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Estilos para el historial */
+  #historialJugadas {
+    padding: 0;
+  }
+
+  #historialJugadas li {
+    font-size: 1em;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+  }
+
+  #historialJugadas li:last-child {
+    border-bottom: none;
+  }
+
+  /* Transiciones y animaciones */
+  input, button {
+    transition: all 0.2s ease-in-out;
+  }
+
+  input:focus, button:focus {
+    outline: none;
+    border-color: #3030fa;
+    box-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+  }
+
+  select:focus {
+    border-color: #3030fa;
+    box-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+  }

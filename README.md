@@ -8,6 +8,9 @@
 - El historial de jugadas se guarda en **localStorage**, permitiendo que las estadísticas persistan incluso al recargar la página.
 - Opción para **borrar el historial** con un solo clic.
 - Envía tus resultados a través de **WhatsApp** con un botón, para compartir cuántas veces has ganado o perdido.
+- **Estrategias avanzadas de la computadora**:
+  - **Estrategia de Detección de Patrones**: La computadora detecta patrones en las elecciones del jugador y ajusta sus jugadas en consecuencia.
+  - **Estrategia de Carga de Jugadas**: Alterna las elecciones de la computadora basándose en probabilidades para hacerla menos predecible.
 - Diseño simple y minimalista, personalizable con CSS.
 ## Probar el Juego
 **Cómo Jugar:**
