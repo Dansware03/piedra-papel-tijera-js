@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego de Piedra, Papel y Tijera</title>
+    <!-- Meta descripción para SEO -->
+    <meta
+      name="description"
+      content="Disfruta del clásico juego de Piedra, Papel y Tijera. Juega contra la computadora en una interfaz sencilla y personalizable."
+    />
+    <!-- Palabras clave relevantes -->
+    <meta
+      name="keywords"
+      content="piedra, papel, tijera, juego, javascript, jugar, computadora, clásico, juego de navegador"
+    />
+    <!-- Autor de la página -->
+    <meta name="author" content="Dansware Developer - Michell Valenzuela" />
+
+    <!-- Información para compartir en redes sociales (Open Graph para Facebook) -->
+    <meta property="og:title" content="Juego de Piedra, Papel y Tijera" />
+    <meta
+      property="og:description"
+      content="Juega al clásico Piedra, Papel y Tijera contra la computadora. ¡Personaliza tu experiencia con CSS!"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://github.com/Dansware03/piedra-papel-tijera-js.git"
+    />
+    <meta property="og:image" content="assets/img/piedra-papel-tijera.png" />
+
+    <!-- Información para Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Juego de Piedra, Papel y Tijera" />
+    <meta
+      name="twitter:description"
+      content="Juega al clásico Piedra, Papel y Tijera contra la computadora."
+    />
+    <meta name="twitter:image" content="assets/img/piedra-papel-tijera.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.ico" />
+    <!-- Estilos y scripts principales -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/index.js"></script>
+  </head>
+  <body>
+    <h1 class="titulo">Juego de Piedra, Papel y Tijera</h1>
+
+    <div class="contenedor">
+      <label for="jugador" class="label"
+        >Elige tu jugada (1 = Piedra, 2 = Papel, 3 = Tijera):</label
+      >
+      <input type="number" id="jugador" class="input" min="1" max="3" />
+
+      <button onclick="jugar()" class="boton">Jugar</button>
+
+      <div class="resultado">
+        <p>PC elige: <span id="eleccionPc" class="eleccion"></span></p>
+        <p>
+          Jugador elige: <span id="eleccionJugador" class="eleccion"></span>
+        </p>
+        <p id="resultado" class="resultado-final"></p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p class="version">Versión 1.0.0</p>
+      <a
+        href="https://www.flaticon.es/iconos-gratis/piedra-papel-tijeras"
+        title="piedra papel tijeras iconos"
+        >Piedra papel tijeras iconos creados por Freepik - Flaticon</a
+      >
+    </footer>
+  </body>
+</html>
