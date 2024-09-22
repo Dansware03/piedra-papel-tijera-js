@@ -28,7 +28,7 @@
       property="og:url"
       content="https://github.com/Dansware03/piedra-papel-tijera-js.git"
     />
-    <meta property="og:image" content="assets/img/piedra-papel-tijera.png" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/Dansware03/piedra-papel-tijera-js/main/assets/img/piedra-papel-tijeras.png" />
 
     <!-- Información para Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -37,36 +37,51 @@
       name="twitter:description"
       content="Juega al clásico Piedra, Papel y Tijera contra la computadora."
     />
-    <meta name="twitter:image" content="assets/img/piedra-papel-tijera.png" />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Dansware03/piedra-papel-tijera-js/main/assets/img/piedra-papel-tijeras.png" />
 
     <!-- Favicon -->
     <link rel="icon" href="assets/img/favicon.ico" />
     <!-- Estilos y scripts principales -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="assets/js/index.js"></script>
+    <script src="assets/js/index.js" defer></script>
   </head>
   <body>
     <h1 class="titulo">Juego de Piedra, Papel y Tijera</h1>
 
     <div class="contenedor">
-      <label for="jugador" class="label"
-        >Elige tu jugada (1 = Piedra, 2 = Papel, 3 = Tijera):</label
-      >
-      <input type="number" id="jugador" class="input" min="1" max="3" />
+      <!-- Selección de modo de juego -->
+      <label for="modoJuego" class="label">Selecciona el modo de juego:</label>
+      <select id="modoJuego" class="input" onchange="cambiarModo()">
+        <option value="pc">Contra la PC</option>
+        <option value="2jugadores">2 Jugadores</option>
+      </select>
+
+      <label for="jugador1" class="label">Elige tu jugada (1 = Piedra, 2 = Papel, 3 = Tijera):</label>
+      <input type="number" id="jugador1" class="input" min="1" max="3" />
+
+      <!-- Campo para el segundo jugador, oculto por defecto -->
+      <label for="jugador2" class="label" id="labelJugador2" style="display:none;">Elige la jugada del Jugador 2:</label>
+      <input type="number" id="jugador2" class="input" min="1" max="3" style="display:none;" />
 
       <button onclick="jugar()" class="boton">Jugar</button>
 
       <div class="resultado">
-        <p>PC elige: <span id="eleccionPc" class="eleccion"></span></p>
-        <p>
-          Jugador elige: <span id="eleccionJugador" class="eleccion"></span>
-        </p>
+        <p>Jugador 1 elige: <span id="eleccionJugador1" class="eleccion"></span></p>
+        <p>PC/Jugador 2 elige: <span id="eleccionPc" class="eleccion"></span></p>
         <p id="resultado" class="resultado-final"></p>
+      </div>
+
+      <!-- Historial de jugadas -->
+      <div class="historial">
+        <h3>Historial de Jugadas</h3>
+        <ul id="historialJugadas"></ul>
+        <button onclick="borrarHistorial()" class="boton">Borrar Historial</button>
+        <button onclick="enviarWhatsApp()" class="boton">Enviar a WhatsApp</button>
       </div>
     </div>
 
     <footer class="footer">
-      <p class="version">Versión 1.0.0</p>
+      <p class="version">Versión 1.1.0</p>
       <a
         href="https://www.flaticon.es/iconos-gratis/piedra-papel-tijeras"
         title="piedra papel tijeras iconos"
