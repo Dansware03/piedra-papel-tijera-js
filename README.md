@@ -1,9 +1,11 @@
 # Juego de Piedra, Papel y Tijera
 
 ¡Bienvenido al clásico juego de Piedra, Papel y Tijera! Este proyecto es una implementación sencilla pero divertida del juego, desarrollado en JavaScript, HTML y CSS. Puedes jugar contra la computadora o elegir el modo de 2 jugadores.
+
 ## Características
 
 - Juega contra la **computadora** o en **modo 2 jugadores**.
+- **Botones de selección estilizados** con iconos de Font Awesome para una mejor experiencia de usuario.
 - Historial de partidas que muestra cuántas veces has ganado o perdido.
 - El historial de jugadas se guarda en **localStorage**, permitiendo que las estadísticas persistan incluso al recargar la página.
 - Opción para **borrar el historial** con un solo clic.
@@ -11,7 +13,14 @@
 - **Estrategias avanzadas de la computadora**:
   - **Estrategia de Detección de Patrones**: La computadora detecta patrones en las elecciones del jugador y ajusta sus jugadas en consecuencia.
   - **Estrategia de Carga de Jugadas**: Alterna las elecciones de la computadora basándose en probabilidades para hacerla menos predecible.
-- Diseño simple y minimalista, personalizable con CSS.
+- **Interfaz mejorada**: Diseño CSS actualizado con botones de selección con colores y iconos diferenciados, y un estilo responsive que se adapta a dispositivos móviles al estilo de una app PWA.
+
+**Actualizaciones recientes en el diseño:**
+
+- **Botones de selección** actualizados con colores y estilos distintos para Piedra, Papel y Tijera, incluyendo iconos.
+- **Menú desplegable** con iconos para seleccionar el modo de juego.
+- **Estilos mejorados** para una apariencia más atractiva y un diseño responsive estilo app PWA.
+
 ## Probar el Juego
 **Cómo Jugar:**
 

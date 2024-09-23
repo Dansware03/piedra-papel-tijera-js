@@ -4,46 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Juego de Piedra, Papel y Tijera</title>
-    <!-- Meta descripción para SEO -->
-    <meta
-      name="description"
-      content="Disfruta del clásico juego de Piedra, Papel y Tijera. Juega contra la computadora en una interfaz sencilla y personalizable."
-    />
-    <!-- Palabras clave relevantes -->
-    <meta
-      name="keywords"
-      content="piedra, papel, tijera, juego, javascript, jugar, computadora, clásico, juego de navegador"
-    />
-    <!-- Autor de la página -->
-    <meta name="author" content="Dansware Developer - Michell Valenzuela" />
-
-    <!-- Información para compartir en redes sociales (Open Graph para Facebook) -->
-    <meta property="og:title" content="Juego de Piedra, Papel y Tijera" />
-    <meta
-      property="og:description"
-      content="Juega al clásico Piedra, Papel y Tijera contra la computadora. ¡Personaliza tu experiencia con CSS!"
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://github.com/Dansware03/piedra-papel-tijera-js.git"
-    />
-    <meta property="og:image" content="https://raw.githubusercontent.com/Dansware03/piedra-papel-tijera-js/main/assets/img/piedra-papel-tijeras.png" />
-
-    <!-- Información para Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Juego de Piedra, Papel y Tijera" />
-    <meta
-      name="twitter:description"
-      content="Juega al clásico Piedra, Papel y Tijera contra la computadora."
-    />
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/Dansware03/piedra-papel-tijera-js/main/assets/img/piedra-papel-tijeras.png" />
-
-    <!-- Favicon -->
     <link rel="icon" href="assets/img/favicon.ico" />
-    <!-- Estilos y scripts principales -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/index.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
   <body>
     <h1 class="titulo">Piedra, Papel y Tijera</h1>
@@ -56,12 +20,32 @@
         <option value="2jugadores">2 Jugadores</option>
       </select>
 
-      <label for="jugador1" class="label">Elige tu jugada (1 = Piedra, 2 = Papel, 3 = Tijera):</label>
-      <input type="number" id="jugador1" class="input" min="1" max="3" />
+      <div id="jugador1-eleccion">
+        <p>Jugador 1, elige tu jugada:</p>
+        <button class="btn-piedra" onclick="seleccionarJugada(1, 'jugador1')">
+          <i class="fas fa-hand-rock"></i> Piedra
+        </button>
+        <button class="btn-papel" onclick="seleccionarJugada(2, 'jugador1')">
+          <i class="fas fa-hand-paper"></i> Papel
+        </button>
+        <button class="btn-tijera" onclick="seleccionarJugada(3, 'jugador1')">
+          <i class="fas fa-hand-scissors"></i> Tijera
+        </button>
+      </div>
 
-      <!-- Campo para el segundo jugador, oculto por defecto -->
-      <label for="jugador2" class="label" id="labelJugador2" style="display:none;">Elige la jugada del Jugador 2:</label>
-      <input type="number" id="jugador2" class="input" min="1" max="3" style="display:none;" />
+      <!-- Botones para el segundo jugador, ocultos por defecto -->
+      <div id="jugador2-eleccion" style="display:none;">
+        <p>Jugador 2, elige tu jugada:</p>
+        <button class="btn-piedra" onclick="seleccionarJugada(1, 'jugador2')">
+          <i class="fas fa-hand-rock"></i> Piedra
+        </button>
+        <button class="btn-papel" onclick="seleccionarJugada(2, 'jugador2')">
+          <i class="fas fa-hand-paper"></i> Papel
+        </button>
+        <button class="btn-tijera" onclick="seleccionarJugada(3, 'jugador2')">
+          <i class="fas fa-hand-scissors"></i> Tijera
+        </button>
+      </div>
 
       <button onclick="jugar()" class="boton">Jugar</button>
 
@@ -81,12 +65,7 @@
     </div>
 
     <footer class="footer">
-      <p class="version">Versión 1.1.0</p>
-      <a
-        href="https://www.flaticon.es/iconos-gratis/piedra-papel-tijeras"
-        title="piedra papel tijeras iconos"
-        >Piedra papel tijeras iconos creados por Freepik - Flaticon</a
-      >
+      <p class="version">Versión 1.2.0</p>
     </footer>
   </body>
 </html>

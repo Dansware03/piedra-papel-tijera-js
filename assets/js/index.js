@@ -1,3 +1,18 @@
+let historial = JSON.parse(localStorage.getItem("historial")) || { ganadas: 0, perdidas: 0 };
+let historialJugador = [];
+let jugador1Jugada = null;
+let jugador2Jugada = null;
+
+function seleccionarJugada(jugada, jugador) {
+  if (jugador === "jugador1") {
+    jugador1Jugada = jugada;
+    document.getElementById("eleccionJugador1").textContent = eleccion(jugada);
+  } else if (jugador === "jugador2") {
+    jugador2Jugada = jugada;
+    document.getElementById("eleccionPc").textContent = eleccion(jugada);
+  }
+}
+
 function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -7,107 +22,70 @@ function eleccion(jugada) {
   return opciones[jugada - 1] || "Opción inválida";
 }
 
-let historial = JSON.parse(localStorage.getItem("historial")) || { ganadas: 0, perdidas: 0 };
-let historialJugador = [];
-
 // Función para detectar patrones en las elecciones del jugador
 function eleccionComputadora() {
-  // Añadir la última jugada del jugador al historial
-  const ultimaJugada = parseInt(document.getElementById("jugador1").value);
-  if (!isNaN(ultimaJugada)) {
-    historialJugador.push(ultimaJugada);
-  }
-
-  // Analizar el patrón de las últimas jugadas
   if (historialJugador.length < 3) {
-    // No suficiente información para detectar patrón
-    return aleatorio(1, 3); // Elegir aleatoriamente
+    return aleatorio(1, 3);
   }
-
-  // Detectar patrón simple basado en las últimas 2 jugadas
-  const patrones = {
-    1: { 1: 2, 2: 3, 3: 1 },
-    2: { 1: 3, 2: 1, 3: 2 },
-    3: { 1: 1, 2: 2, 3: 3 }
-  };
-
+  const patrones = { 1: { 1: 2, 2: 3, 3: 1 }, 2: { 1: 3, 2: 1, 3: 2 }, 3: { 1: 1, 2: 2, 3: 3 } };
   const ultima = historialJugador[historialJugador.length - 1];
   const penultima = historialJugador[historialJugador.length - 2];
-
-  if (patrones[penultima] && patrones[penultima][ultima]) {
-    return patrones[penultima][ultima];
-  }
-
-  // Si no se detecta un patrón, elegir aleatoriamente
-  return aleatorio(1, 3);
+  return patrones[penultima]?.[ultima] || aleatorio(1, 3);
 }
 
 function eleccionComputadoraConProbabilidades() {
-  const probabilidades = [0.3, 0.4, 0.3]; // Probabilidades para Piedra, Papel, Tijera
+  const probabilidades = [0.3, 0.4, 0.3];
   const rand = Math.random();
   let acumulado = 0;
-
   for (let i = 0; i < probabilidades.length; i++) {
     acumulado += probabilidades[i];
-    if (rand < acumulado) {
-      return i + 1; // Retorna 1, 2 o 3 basado en el índice
-    }
+    if (rand < acumulado) return i + 1;
   }
-  return 1; // Valor predeterminado en caso de error
+  return 1;
 }
 
 function jugar() {
   const modoJuego = document.getElementById("modoJuego").value;
-  let jugador1 = parseInt(document.getElementById("jugador1").value);
   let jugador2;
 
-  if (modoJuego === "pc") {
-    // Elegir entre estrategia de detección de patrones o carga de jugadas
-    jugador2 = Math.random() < 0.5 ? eleccionComputadora() : eleccionComputadoraConProbabilidades();
-  } else {
-    jugador2 = parseInt(document.getElementById("jugador2").value);
-  }
-
-  let resultado = document.getElementById("resultado");
-
-  if (jugador1 < 1 || jugador1 > 3 || isNaN(jugador1) || (modoJuego === "2jugadores" && (jugador2 < 1 || jugador2 > 3 || isNaN(jugador2)))) {
-    resultado.textContent = "Por favor, elige una opción válida.";
+  if (!jugador1Jugada) {
+    alert("Jugador 1 debe elegir una jugada.");
     return;
   }
 
-  document.getElementById("eleccionJugador1").textContent = eleccion(jugador1);
-  document.getElementById("eleccionPc").textContent = eleccion(jugador2);
+  if (modoJuego === "pc") {
+    jugador2 = Math.random() < 0.5 ? eleccionComputadora() : eleccionComputadoraConProbabilidades();
+    document.getElementById("eleccionPc").textContent = eleccion(jugador2);
+  } else if (!jugador2Jugada) {
+    alert("Jugador 2 debe elegir una jugada.");
+    return;
+  } else {
+    jugador2 = jugador2Jugada;
+  }
 
-  if (jugador1 === jugador2) {
-    resultado.textContent = "Empate";
+  if (jugador1Jugada === jugador2) {
+    document.getElementById("resultado").textContent = "Empate";
   } else if (
-    (jugador1 === 1 && jugador2 === 3) ||
-    (jugador1 === 2 && jugador2 === 1) ||
-    (jugador1 === 3 && jugador2 === 2)
+    (jugador1Jugada === 1 && jugador2 === 3) ||
+    (jugador1Jugada === 2 && jugador2 === 1) ||
+    (jugador1Jugada === 3 && jugador2 === 2)
   ) {
-    resultado.textContent = "Ganaste";
+    document.getElementById("resultado").textContent = "Ganaste";
     historial.ganadas++;
   } else {
-    resultado.textContent = "Perdiste";
+    document.getElementById("resultado").textContent = "Perdiste";
     historial.perdidas++;
   }
 
   actualizarHistorial();
   guardarHistorial();
+  jugador1Jugada = null;
+  jugador2Jugada = null;
 }
 
 function cambiarModo() {
   const modoJuego = document.getElementById("modoJuego").value;
-  const jugador2 = document.getElementById("jugador2");
-  const labelJugador2 = document.getElementById("labelJugador2");
-
-  if (modoJuego === "2jugadores") {
-    jugador2.style.display = "block";
-    labelJugador2.style.display = "block";
-  } else {
-    jugador2.style.display = "none";
-    labelJugador2.style.display = "none";
-  }
+  document.getElementById("jugador2-eleccion").style.display = modoJuego === "2jugadores" ? "block" : "none";
 }
 
 function actualizarHistorial() {
