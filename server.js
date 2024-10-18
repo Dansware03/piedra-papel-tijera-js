@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.static('dist'));
@@ -20,7 +20,7 @@ const winConditions = {
 
 function getComputerChoice(difficulty, playerChoice) {
   const randomChoice = () => choices[Math.floor(Math.random() * choices.length)];
-  
+
   switch (difficulty) {
     case 'easy':
       // 60% chance of choosing a losing move, 40% random
@@ -46,7 +46,7 @@ app.post('/play', (req, res) => {
   const { playerChoice, difficulty } = req.body;
   const computerChoice = getComputerChoice(difficulty, playerChoice);
   const result = determineWinner(playerChoice, computerChoice);
-  
+
   res.json({ computerChoice, result });
 });
 
