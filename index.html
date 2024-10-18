@@ -1,71 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juego de Piedra, Papel y Tijera</title>
-    <link rel="icon" href="assets/img/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="assets/js/index.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  </head>
-  <body>
-    <h1 class="titulo">Piedra, Papel y Tijera</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piedra, Papel o Tijera</title>
+  <link href="/src/style.css" rel="stylesheet">
+  <link rel="icon" href="public/images/favicon.ico" type="image/x-icon">
+</head>
+<body class="bg-gradient-to-r from-blue-500 to-purple-600 flex flex-col items-center justify-between min-h-screen p-4">
+  <div class="bg-white p-8 rounded-lg shadow-2xl max-w-md w-full">
+    <h1 class="text-4xl font-bold mb-6 text-center text-gray-800">Piedra, Papel o Tijera</h1>
 
-    <div class="contenedor">
-      <!-- Selección de modo de juego -->
-      <label for="modoJuego" class="label">Selecciona el modo de juego:</label>
-      <select id="modoJuego" class="input" onchange="cambiarModo()">
-        <option value="pc">Contra la PC</option>
-        <option value="2jugadores">2 Jugadores</option>
-      </select>
-
-      <div id="jugador1-eleccion">
-        <p>Jugador 1, elige tu jugada:</p>
-        <button class="btn-piedra" onclick="seleccionarJugada(1, 'jugador1')">
-          <i class="fas fa-hand-rock"></i> Piedra
-        </button>
-        <button class="btn-papel" onclick="seleccionarJugada(2, 'jugador1')">
-          <i class="fas fa-hand-paper"></i> Papel
-        </button>
-        <button class="btn-tijera" onclick="seleccionarJugada(3, 'jugador1')">
-          <i class="fas fa-hand-scissors"></i> Tijera
-        </button>
-      </div>
-
-      <!-- Botones para el segundo jugador, ocultos por defecto -->
-      <div id="jugador2-eleccion" style="display:none;">
-        <p>Jugador 2, elige tu jugada:</p>
-        <button class="btn-piedra" onclick="seleccionarJugada(1, 'jugador2')">
-          <i class="fas fa-hand-rock"></i> Piedra
-        </button>
-        <button class="btn-papel" onclick="seleccionarJugada(2, 'jugador2')">
-          <i class="fas fa-hand-paper"></i> Papel
-        </button>
-        <button class="btn-tijera" onclick="seleccionarJugada(3, 'jugador2')">
-          <i class="fas fa-hand-scissors"></i> Tijera
-        </button>
-      </div>
-
-      <button onclick="jugar()" class="boton">Jugar</button>
-
-      <div class="resultado">
-        <p>Jugador 1 elige: <span id="eleccionJugador1" class="eleccion"></span></p>
-        <p>PC/Jugador 2 elige: <span id="eleccionPc" class="eleccion"></span></p>
-        <p id="resultado" class="resultado-final"></p>
-      </div>
-
-      <!-- Historial de jugadas -->
-      <div class="historial">
-        <h3>Historial de Jugadas</h3>
-        <ul id="historialJugadas"></ul>
-        <button onclick="borrarHistorial()" class="boton">Borrar Historial</button>
-        <button onclick="enviarWhatsApp()" class="boton">Enviar a WhatsApp</button>
+    <div id="modeSelection" class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4 text-center text-gray-700">Selecciona el modo de juego:</h2>
+      <div class="flex justify-center space-x-4">
+        <button id="vsComputerBtn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">vs Computadora</button>
+        <button id="vsPlayerBtn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">2 Jugadores</button>
       </div>
     </div>
 
-    <footer class="footer">
-      <p class="version">Versión 1.2.0</p>
-    </footer>
-  </body>
+    <div id="difficultySelection" class="mb-8 hidden">
+      <h2 class="text-2xl font-semibold mb-4 text-center text-gray-700">Selecciona la dificultad:</h2>
+      <div class="flex justify-center space-x-4">
+        <button class="difficulty bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition" data-difficulty="easy">Fácil</button>
+        <button class="difficulty bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition" data-difficulty="normal">Normal</button>
+        <button class="difficulty bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition" data-difficulty="hard">Difícil</button>
+      </div>
+    </div>
+
+    <div id="gameArea" class="hidden">
+      <div class="mb-8">
+        <h2 id="currentPlayer" class="text-2xl font-semibold mb-4 text-center text-gray-700">Jugador 1, elige tu jugada:</h2>
+        <div id="playerChoices" class="flex justify-center space-x-6">
+          <button class="choice bg-gray-200 p-6 rounded-full hover:bg-gray-300 transition transform hover:scale-110">
+            <img src="/images/rock.png" alt="Piedra" class="w-16 h-16">
+          </button>
+          <button class="choice bg-gray-200 p-6 rounded-full hover:bg-gray-300 transition transform hover:scale-110">
+            <img src="/images/paper.png" alt="Papel" class="w-16 h-16">
+          </button>
+          <button class="choice bg-gray-200 p-6 rounded-full hover:bg-gray-300 transition transform hover:scale-110">
+            <img src="/images/scissors.png" alt="Tijera" class="w-16 h-16">
+          </button>
+        </div>
+      </div>
+
+      <div id="result" class="text-center text-2xl font-semibold mb-6 h-8 text-gray-800"></div>
+
+      <div id="score" class="text-center text-xl mb-6">
+        <span id="player1Score" class="text-green-600">Jugador 1: 0</span>
+        <span class="mx-2 text-gray-600">-</span>
+        <span id="player2Score" class="text-red-600">Jugador 2: 0</span>
+      </div>
+
+      <div class="text-center">
+        <button id="backButton" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition">
+          Volver al inicio
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="mt-8 text-white text-center w-full">
+    <p>Desarrollado por Dansware Developer - Versión 2.0.0</p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
