@@ -1,88 +1,58 @@
-# Juego de Piedra, Papel y Tijera
+# Piedra, Papel o Tijera
 
-¡Bienvenido al clásico juego de Piedra, Papel y Tijera! Este proyecto es una implementación sencilla pero divertida del juego, desarrollado en JavaScript, HTML y CSS. Puedes jugar contra la computadora o elegir el modo de 2 jugadores.
+Un juego clásico de Piedra, Papel o Tijera implementado como una aplicación web progresiva (PWA) utilizando React, TypeScript y Tailwind CSS.
 
 ## Características
 
-- Juega contra la **computadora** o en **modo 2 jugadores**.
-- **Botones de selección estilizados** con iconos de Font Awesome para una mejor experiencia de usuario.
-- Historial de partidas que muestra cuántas veces has ganado o perdido.
-- El historial de jugadas se guarda en **localStorage**, permitiendo que las estadísticas persistan incluso al recargar la página.
-- Opción para **borrar el historial** con un solo clic.
-- Envía tus resultados a través de **WhatsApp** con un botón, para compartir cuántas veces has ganado o perdido.
-- **Estrategias avanzadas de la computadora**:
-  - **Estrategia de Detección de Patrones**: La computadora detecta patrones en las elecciones del jugador y ajusta sus jugadas en consecuencia.
-  - **Estrategia de Carga de Jugadas**: Alterna las elecciones de la computadora basándose en probabilidades para hacerla menos predecible.
-- **Interfaz mejorada**: Diseño CSS actualizado con botones de selección con colores y iconos diferenciados, y un estilo responsive que se adapta a dispositivos móviles al estilo de una app PWA.
+- **Modos de juego**:
+  - Un jugador contra la computadora
+  - Dos jugadores en el mismo dispositivo
+- **Niveles de dificultad** (modo un jugador):
+  - Fácil
+  - Normal
+  - Difícil
+- **Interfaz de usuario moderna** y responsive diseñada con Tailwind CSS
+- **Instalable** como una aplicación en dispositivos móviles y de escritorio
+- **Funciona offline** gracias a las capacidades de PWA
 
-**Actualizaciones recientes en el diseño:**
+## Tecnologías utilizadas
 
-- **Botones de selección** actualizados con colores y estilos distintos para Piedra, Papel y Tijera, incluyendo iconos.
-- **Menú desplegable** con iconos para seleccionar el modo de juego.
-- **Estilos mejorados** para una apariencia más atractiva y un diseño responsive estilo app PWA.
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
+- FontAwesome para iconos
+- Vercel para el despliegue
 
-## Probar el Juego
-**Cómo Jugar:**
+## Cómo jugar
 
-1. **Selecciona el modo de juego**:
-   - **Contra la computadora**: Elige tu jugada (Piedra, Papel o Tijera) y compite contra una selección aleatoria de la computadora.
-   - **2 Jugadores**: Tanto el jugador 1 como el jugador 2 eligen sus jugadas, y el sistema determinará el ganador.
+1. Elige el modo de juego: Un jugador o Dos jugadores
+2. Si eliges Un jugador, selecciona el nivel de dificultad
+3. Ingresa los nombres de los jugadores
+4. Haz clic en el icono de tu elección (piedra, papel o tijera)
+5. ¡Disfruta del juego!
 
-2. **Historial de Jugadas**: Después de cada ronda, se actualizará el historial de ganadas y perdidas, y los resultados se guardarán en el almacenamiento local.
+## Instalación local
 
-3. **Enviar Resultados a WhatsApp**: Con un solo clic, podrás enviar tu historial de victorias y derrotas a cualquier contacto de WhatsApp.
+1. Clona este repositorio
+2. Instala las dependencias con `npm install`
+3. Ejecuta el servidor de desarrollo con `npm run dev`
+4. Abre `http://localhost:5173` en tu navegador
 
-4. **Borrar Historial**: Si deseas reiniciar el conteo de victorias y derrotas, puedes hacerlo con el botón "Borrar Historial".
+## Despliegue
 
-### [Jugar Piedra, Papel o tijera - Online](https://dansware03.github.io/piedra-papel-tijera-js)
+Este proyecto está configurado para ser desplegado en Vercel. Simplemente conecta tu repositorio de GitHub a Vercel y se desplegará automáticamente con cada push a la rama principal.
 
-## Instrucciones de Uso en local
+## Contribuciones
 
-### Requisitos
+Las contribuciones son bienvenidas. Por favor, abre un issue para discutir los cambios importantes antes de crear un pull request.
 
-- Un navegador moderno que soporte HTML5, JavaScript y CSS3.
-
-### Instalación
-
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/Dansware03/piedra-papel-tijera-js.git
-
-2. Abre el archivo `index.html` en tu navegador.
-
-### Archivos Principales
-
-- **index.html:** Contiene la estructura HTML del juego, incluyendo los botones, inputs y la interfaz para jugar.
-
-- **index.js:** Contiene toda la lógica del juego en JavaScript, incluyendo la selección de jugadas, cálculo de victorias/perdidas, manejo del localStorage y la función para enviar a WhatsApp.
-
-- **style.css:** Archivo CSS donde puedes agregar tus propios estilos para personalizar el diseño.**(No contiene Stilos)**
-## Personalización
-
-
-El proyecto está preparado para que le añadas tu propio estilo usando CSS. Puedes modificar las clases ya presentes en el archivo HTML, como `titulo`, `contenedor`, `input`, `boton`, `eleccion`, etc o crear nuevas clases para personalizar el aspecto del juego.
-
-
-
-### Funcionalidades Implementadas
-
-- **Jugar contra la computadora o un segundo jugador:** Selecciona el modo de juego desde un menú desplegable.
-
-- **Historial de partidas:** Se guarda en localStorage y muestra el número de victorias y derrotas del jugador.
-
-- **Enviar resultados a WhatsApp:** Comparte tu historial con un contacto de WhatsApp con un botón que abre la app de WhatsApp y envía el mensaje predefinido.
-
-- **Borrar historial:** Permite al usuario eliminar el historial almacenado.
-## Agradecimientos
-
- - [Piedra papel tijeras iconos creados por Freepik - Flaticon.](https://www.flaticon.es/iconos-gratis/piedra-papel-tijeras)
-## License
+## Licencia
 
 Este proyecto está bajo la Licencia [MIT](https://github.com/Dansware03/piedra-papel-tijera-js?tab=MIT-1-ov-file#readme)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Dansware03/piedra-papel-tijera-js?tab=MIT-1-ov-file#readme)
-## Authors
 
-- [@Dansware03](https://github.com/Dansware03)
+---
 
-- [@Michell-Valenzuela30](https://github.com/Michell-Valenzuela30)
+Desarrollado con ❤️ por [@Dansware03](https://github.com/Dansware03)
