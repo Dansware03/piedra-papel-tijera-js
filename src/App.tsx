@@ -4,6 +4,7 @@ import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid
 import Game from './components/Game';
 import DifficultySelector from './components/DifficultySelector';
 import PlayerNameInput from './components/PlayerNameInput';
+import InstallPrompt from './components/InstallPrompt';
 
 function App() {
   const [gameMode, setGameMode] = useState<'singleplayer' | 'multiplayer'>('singleplayer');
@@ -73,6 +74,7 @@ function App() {
           player2Name={player2Name}
         />
       </div>
+      <InstallPrompt />
     </div>
   );
 }
