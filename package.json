@@ -1,7 +1,10 @@
 {
-  "name": "rock-paper-scissors",
+  "name": "piedra-papel-tijera",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.0",
+  "description": "Juego de papel, piedra y tijera",
+  "author": "Dansware Developer",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
